@@ -1,2 +1,47 @@
 # CS-4390-Assignment-1
-Homework 1 in python
+## PDF Portion
+1. (1 point) What are two reasons for using layered protocols? What is one possible disadvantage of using layered protocols?
+
+    a) Layered protocols allow for modular updates, meaning you can tweak one layer without messing with the ones above or below it.
+
+    b) They simplify a complex system by dividing it into bite-sized, easier-to-handle pieces. It's like turning a jigsaw puzzle into a game of tic-tac-toe.
+
+    c) One potential downside of using layered protocols is the "performance overhead." Because each layer adds its own set of rules and processes, the data might have to go through multiple transformations as it moves from one layer to another. This can slow down the overall data transmission speed and consume more resources.
+
+2. (2 points) This problem explores propagation delay and transmission delay in data networking. Consider two hosts, A and B, connected by a single link of rate R bps. Suppose that the two hosts are separated by m meters, and suppose the propagation speed along the link is s meters/sec. Host A is to send a packet of size L bits to Host B.
+
+    a) Express the propagation delay d(prop), in terms of m and s.
+        That's just how long it takes for a bit to travel from point A to point B. You can find it by taking the distance between the two hosts and dividing it by the seconds. Given meters and seconds, the d(prop) can be determined using the formula d(prop) = m/s
+
+    b) Determine the transmission time of the packet, d(trans), in terms of L and R.
+        That's basically how long it takes for Host A to push all L bits of the packet into the link. The rate of this happening is R bits per second. So the d(trans) is L/R 
+
+    c) Ignoring processing and queuing delays, obtain an expression for the end-to-end delay.
+        We're basically trying to find the total time, the end-to-end delay is essentially the sum of d(prop) and d(trans), so given d(prop) = m/s and d(trans) = L/R, then the equation for d(end-to-end) = d(prop) +d(trans) = m/s + L/R 
+
+    d) Suppose s = 2.5 x 108, L = 120 bits, and R = 56 kbps. Find the distance m so that dprop equals dtrans.
+        as we are solving for m, all we need to do is multiply s by L/R. In this case plugging in the appropriate numbers: m = 2.5*10^8(120/56*10^3) = 535,714 meters or 535.7 kilometers
+
+4. (1 point) Which of the URLs meet the same origin policy against http://www.example.com/local/index.html
+
+    a) http://help.example.com/local/index.html
+
+    b) http://www.example.com/dir/index.html?q=100
+
+    c) ftp://www.example.com/dir/index.html
+
+    d) http://www.example.com:8080/local/index.html
+ 
+   When trying to find the proper URL thats meets the same SOP as the one provided, I need to see if the Protocol, Domain, and Port are all the same. 
+  A does not match the domain name ("help."). C does not match the port and protocol ("ftp" and given ftp the default protocol is 21). D does not match the port (8080, where default for http is 80).     Therefore, the correct URL is B 
+
+5. (1 point) Find the value of the A-type record of the domain cs.utdallas.edu and the its TTL in the authoritative answer. Briefly explain how you find the answers.
+
+    a) From my output, i can see the A-type records for cs.utdallas.edu are:
+        3.21.250.42 and 3.133.32.155
+
+    b) From my output, i can see that the TTL for both the A-type records are:
+        3600 seconds (1 Hour)
+
+    c) I used the Command Prompt to find the answers. Once inside, I entered nslookup's interactive mode by typing nslookup and hitting Enter. To see detailed information, I enabled debug mode with the command set debug. Next, I queried the domain cs.utdallas.edu by typing it and pressing Enter. In the output, I found the "ANSWERS" section, which displayed the A-type records and their TTL.
+    
